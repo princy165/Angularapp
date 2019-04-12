@@ -1,0 +1,37 @@
+<body align="center" class="body">
+    <div class="container">
+        <h2>Sign-Up</h2>
+        <div class="col-sm-6">
+            <form [formGroup]="signupform" (ngSubmit)="submitForm()">
+                <div class="form-group">
+                    <label>Name</label><br>
+                    <input type="text" class="form-control" formControlName="name">
+                    <small *ngIf="!name.pristine && name.hasError('required')" class="text-danger">Name is required</small>
+                </div>
+                <div class="form-group">
+                    <label>UserId </label><br>
+                    <input type="text" class="form-control" formControlName="userid">
+                    <small *ngIf="!userid.pristine && userid.hasError('required')" class="text-danger">UserId is required</small>
+                </div>
+                <div class="form-group">
+                    <label>Create Password </label><br>
+                    <input type="password" class="form-control" formControlName="creaepasswd">
+                    <small *ngIf="!createpasswsd.pristine && createpasswd.hasError('required')" class="text-danger">required</small>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password </label><br>
+                    <input type="password" class="form-control" formControlName="confirmpasswd">
+                    <small *ngIf="!confirm.pristine && confirm.hasError('required')" class="text-danger"> required</small>
+                </div>
+                <div class="form-group">
+                    <label>ContactNo</label><br>
+                    <input type="text" class="form-control" formControlName="contactno">
+                    <small *ngIf="!contactno.pristine && contact.hasError('required')" class="text-danger">required</small>
+                    <small *ngIf="contactno.hasError('pattern')" class="text-danger">if start with zero 11 digits else 10 digits</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-primary">Reset</button>
+            </form>
+        </div>
+    </div>
+</body>

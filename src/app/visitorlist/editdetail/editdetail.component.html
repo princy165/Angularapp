@@ -1,0 +1,73 @@
+<body align="center" class="body">
+
+    <div class="container">
+      <h2>Edit Details</h2>
+      <div class="col-sm-6">
+        <form [formGroup]="editdetailForm" (ngSubmit)="saveForm(editdetailForm)">
+          <div class="form-group">
+            <label>*Name</label><br>
+            <input type="text" class="from-control" formControlName="name">
+            <small *ngIf="!name.pristine && name.hasError('required')" class="text-danger">Name is required</small>
+            <small *ngIf="name.hasError('pattern')" class="text-danger">Alphabets are Allowed</small>
+  
+          </div>
+        
+          <div class="form-group">
+            <label>*VisitorId</label><br>
+            <input type="text" class="form-control" formControlName="id">
+            <small *ngIf="!id.pristine && id.hasError('required')" class="text-danger">Id is required</small>
+            <small *ngIf="id.hasError('pattern')" class="text-danger">Numbers are Allowed</small>
+            <small *ngIf="id.hasError('minlength')" class="text-danger">minimum 3 digits</small>
+            <small *ngIf="id.hasError('maxlength')" class="text-danger">maximum 6 digits</small>
+          </div>
+          <div class="form-group">
+            <label>*In-Time</label><br>
+            <input type="time" class="form-control" formControlName="time">
+            <small *ngIf="!time.pristine && time.hasError('required')" class="text-danger">Time is required</small>
+          </div>
+  
+          <div class="form-group">
+            <label>*Coming From</label><br>
+            <input type="text" class="form-control" formControlName="cf">
+            <small *ngIf="!cf.pristine && name.hasError('required')" class="text-danger">Source is required</small>
+          </div>
+          <div class="form-group">
+            <label>*SSO_Id</label><br>
+            <input type="text" class="form-control" formControlName="ssoid">
+            <small *ngIf="!ssoid.pristine && ssoid.hasError('required')" class="text-danger">SSO_Id is required</small>
+            <small *ngIf="ssoid.hasError('pattern')" class="text-danger">Numbers are Allowed</small>
+            <small *ngIf="ssoid.hasError('minlength')" class="text-danger">minimum 9 digits</small>
+            <small *ngIf="ssoid.hasError('maxlength')" class="text-danger">maximum 9 digits</small>
+          </div>
+          <div class="form-group">
+            <label>*Authorised Name</label><br>
+            <input type="text" class="form-control" formControlName="authname">
+            <small *ngIf="!authname.pristine && authname.hasError('required')" class="text-danger">Name is
+              required</small>
+            <small *ngIf="authname.hasError('pattern')" class="text-danger">Alphabets are Allowed</small>
+          </div>
+          <div class="form-group">
+            <label>*Authorised Id</label><br>
+            <input type="text" class="form-control" formControlName="authid">
+            <small *ngIf="!authid.pristine && authid.hasError('required')" class="text-danger">Id is required</small>
+            <small *ngIf="authid.hasError('pattern')" class="text-danger">Numbers are Allowed</small>
+            <small *ngIf="authid.hasError('minlength')" class="text-danger">minimum 3 digits</small>
+            <small *ngIf="authid.hasError('maxlength')" class="text-danger">maximum 6 digits</small>
+          </div>
+          <!-- <div class="form-group">
+            <label>*Out-Time</label><br>
+            <input type="time" class="form-control" formControlName="outtime">
+            <small *ngIf="!outtime.pristine && outimetime.hasError('required')" class="text-danger">Time is
+              required</small>
+          </div> -->
+          
+  
+      <button type="submit"  class="btn btn-primary">Save</button>
+    
+     
+      
+    </form>
+    </div>
+    </div>
+   
+  </body>

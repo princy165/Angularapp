@@ -1,0 +1,26 @@
+<body align="center" class="body">
+
+  <div class="container">
+    <h2>Login</h2>
+    <div class="col-sm-6">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-group">
+          <label>UserId</label><br>
+          <input type="text" class="from-control" formControlName="userid">
+          <small *ngIf="!userid.pristine && userid.hasError('required')" class="text-danger">Userid is required</small>
+          <small *ngIf="userid.hasError('pattern')" class="text-danger">Alphabets are Allowed</small>
+
+        </div>
+        <div class="form-group">
+          <label>Password</label><br>
+          <input type="password" class="from-control" formControlName="password">
+          <small *ngIf="!password.pristine && password.hasError('required')" class="text-danger">Please enter your password </small>
+          <small *ngIf="password.hasError('pattern')" class="text-danger">password</small>
+
+        </div>
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button> 
+        <button type="reset" class="btn btn-primary" >Cancel</button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,37 @@
+.h3
+{
+    font-size: 80px;
+}
+.panel-title
+{
+    font-size: 30px;
+
+}
+.label
+
+{
+    font-size: 30px;
+}
+
+ .body { 
+    
+    background-image: url("https://clientcommand.com/wp-content/uploads/2018/07/form-background.png"); 
+  background-repeat: no-repeat;
+ 
+  
+  
+} 
+
+.image
+{
+min-width: 100%;
+min-height: 200%;
+block-size: 200%;
+}
+input.ng-invalid {
+    background-color:pink;
+}
+input.ng-valid {
+    background-color:lightgreen;
+}
+

@@ -1,0 +1,32 @@
+
+<table class="table table-hover">
+  <thead>
+  <th>Name</th>
+  <th>VisitoId</th>
+  <th>In-Time</th>
+  <th>Coming From</th>
+  <th>SSO_Id</th>
+  <th>AuthorizedName</th>
+  <th>AuthorizedId</th>
+  <th>OutTime</th>
+  </thead>
+  <tbody>
+  <tr *ngFor="let visitor of visitorList">
+
+      <td> {{visitor.name}}</td>
+      <td> {{visitor.id}}</td>
+      <td> {{visitor.time}}</td>
+      <td> {{visitor.cf}}</td>
+      <td> {{visitor.ssoid}}</td>
+      <td> {{visitor.authname}}</td>
+     <td> {{visitor.authid}}</td>
+     <td> {{visitor.dateAdded}}</td>
+    
+    
+
+       <td><button class="btn btn-primary"  (click)="updateVisitor(visitor)">edit</button></td> 
+      <td><button class="btn btn-primary" (click)="deleteVisitor(visitor)"><i class="fa fa-trash"></i>delete</button></td>
+      <td><button class="btn btn-primary" (click)="Outtime(visitor)">outtime</button></td>
+    </tr>
+  </tbody>
+</table>
