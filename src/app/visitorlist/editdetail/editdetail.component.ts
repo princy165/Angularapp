@@ -16,11 +16,38 @@ import { VisitorlistComponent } from '../visitorlist.component';
   ]
 })
 export class EditDetailComponent implements OnInit {
-
-
+data:any
+VisotorName:string;
+VisitorId:string;
+cF:string;
+ssoId:any;
+InTime:any;
+AuthName:string;
+AuthId:string;
+originalData:any;
   editdetailForm: FormGroup;
   constructor(@Inject(FormBuilder) private fb: FormBuilder, private newService: CommonService, private router: Router, private route: ActivatedRoute) {
     this.buildForm();
+    this.ssoId = this.route.snapshot.paramMap.get('ssoid');
+    this.data=this.newService.getFilledData();
+    if(this.data){
+      for(let i=0;i<this.data.length;i++){
+        if(this.data[i].ssoid==this.ssoId){
+          this.VisitorId=this.data[i].id
+          this.VisotorName=this.data[i].name
+          this.cF=this.data[i].cf
+          this.InTime=this.data[i].time
+          this.AuthName=this.data[i].authname
+          this.AuthId=this.data[i].authid
+          this.ssoId=this.data[i].ssoid
+          break;
+        }
+      }
+    }
+    
+    console.log('data =>.. ',this.ssoId)
+
+ 
     console.log(this.editdetailForm.value);
   }
   Repdata;
@@ -112,12 +139,14 @@ export class EditDetailComponent implements OnInit {
     this.newService.editUser(form.value)
       .subscribe(data => {
 
-        console.log(data)
-
+        console.log('data => ',data)
+        console.log(this.name1)
       })
       
-    //alert("Saved Successfully");
+    alert("updated Successfully");
+    this.router.navigate(['/visitorlist'])
   }
   @Input()visitor:VisitorlistComponent;
   @Input('master') masterName: string;
+  @Input('name') name1:String;
 }

@@ -18,7 +18,7 @@ export class VisitorlistComponent implements OnInit {
 
   ngOnInit() {
      this.commonservice. getUser().subscribe(data=>{
-       
+       this.commonservice.addData(data);
        this.visitorList = data;
        console.log(this.visitorList);
      })
@@ -47,6 +47,7 @@ Outtime(visitor):void{
   this.commonservice.outTime(visitor).subscribe(data=>{
     console.log(data);
   })
+  this.router.navigate(['/visitorlist'])
 }
 
 // Outtime(visitor):void{

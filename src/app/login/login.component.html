@@ -1,6 +1,6 @@
-<body align="center" class="body">
-
-  <div class="container">
+<body class="bdy">
+<div class="container">
+  
     <h2>Login</h2>
     <div class="col-sm-6">
       <form [formGroup]="loginForm" (ngSubmit)="login()">
@@ -18,8 +18,7 @@
           <small *ngIf="password.hasError('pattern')" class="text-danger">password</small>
 
         </div>
-        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button> 
-        <button type="reset" class="btn btn-primary" >Cancel</button>
+        <pre><button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>  <button type="reset" class="btn btn-primary" >Cancel</button></pre>
       </form>
     </div>
   </div>

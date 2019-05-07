@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { VisitorlistComponent } from './visitorlist/visitorlist.component';
 import { VisitorComponent } from './visitor/visitor.component';
 import { EditDetailComponent } from './visitorlist/editdetail/editdetail.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path:'',component:VisitorComponent},
-  // // {path: '',redirectTo: 'login',pathMatch:'full'},
+  {path:'visitor',component:VisitorComponent},
+  {path: '',component:LoginComponent},
   // {path: '**',redirectTo:'visitor',pathMatch:'full'},
    {path:'visitorlist',component:VisitorlistComponent},
-   {path:'editdetail/:ssoid',component:EditDetailComponent}
+   {path:'editdetail/:ssoid',component:EditDetailComponent,data:{name1:'ABCD'}}
 ];
 
 @NgModule({

@@ -10,6 +10,7 @@ import { map, filter} from 'rxjs/operators';
 })
 export class CommonService
 {
+      data:any;
      constructor(private http: Http){}
 
       saveUser(user)
@@ -19,7 +20,7 @@ export class CommonService
       }
       getUser()
       {
-        return this.http.get('http://localhost:3000/api/GetUser/')
+        return this.http.get('http://localhost:3000/api/GetUser')
         .pipe(map((response:Response)=>response.json()))
       }
       editUser(user){
@@ -36,5 +37,12 @@ export class CommonService
         return this.http.post('http://localhost:3000/api/Gettime', user)
         // return this.http.get('http://localhost:3000/api/Gettime')
         // .pipe(map((response:Response)=>response.json()))
+      }
+
+      addData(data:any){
+        this.data=data;
+      }
+      getFilledData(){
+        return this.data;
       }
 }

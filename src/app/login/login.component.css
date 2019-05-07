@@ -1,0 +1,25 @@
+ .bdy{
+    background-image: url("../../assets/images/loginimage.jpg"); 
+    background-repeat: no-repeat;
+    /* background-color: olivedrab; */
+   
+}
+.container{
+     padding-right: 55px;
+     padding-left: 355px;
+     padding-top: 100px;
+     margin-right: auto;
+     margin-left: auto;
+}
+.h2{
+     background-color: burlywood
+}
+ /* .image
+{
+min-width: 100%;
+min-height: 500%;
+block-size: 200%;
+}  */
+
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
     selector: 'login-root',
     templateUrl: './login.component.html',
@@ -10,7 +11,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent {
     loginForm: FormGroup
-    constructor(@Inject(FormBuilder) private fb:FormBuilder){
+    constructor(@Inject(FormBuilder) private fb:FormBuilder,private router:Router){
         this.buildForm();
         console.log(this.loginForm.value)
 
@@ -25,16 +26,17 @@ export class LoginComponent {
         this.loginForm=this.fb.group({
             userid:[null,[
                 Validators.required,
-                Validators.pattern('[A-Z][a-z]+')
+                Validators.pattern('[a-z]+')
             ]],
             password:[null,[
                 Validators.required,
-                Validators.pattern('[A-Z][a-z]+')
+                Validators.pattern('[0-9]+')
             ]]
         })
     }
     login():void{
-
+          //this.router.navigate(['/visitor'])
+          console.log("*************");
     }
     resetform():void{
         console.log(this.loginForm.reset());

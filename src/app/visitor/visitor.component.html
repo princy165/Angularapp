@@ -8,7 +8,7 @@
   <form [formGroup]="visitorForm" (ngSubmit)="submitForm(visitorForm)">
     <div class="form-group">
       <label>*Name</label><br>
-      <input type="text" class="from-control" formControlName="name">
+      <input type="text" class="form-control" formControlName="name">
       <small *ngIf="!name.pristine && name.hasError('required')" class="text-danger">Name is required</small>
        <small *ngIf="name.hasError('pattern')" class="text-danger">Alphabets are Allowed</small>
       
