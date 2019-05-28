@@ -45,4 +45,8 @@ export class CommonService
       getFilledData(){
         return this.data;
       }
+      loginUser(reqobj){
+        return this.http.post('http://localhost:3000/api/login',reqobj)
+        // .pipe(map((response:Response)=>response.json()))
+      }
 }

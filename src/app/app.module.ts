@@ -12,6 +12,7 @@ import { CommonService } from './shared/common.service';
 import { VisitorlistComponent } from './visitorlist/visitorlist.component';
 import { EditDetailComponent } from './visitorlist/editdetail/editdetail.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     VisitorComponent,
     VisitorlistComponent,
     EditDetailComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   
   ],
   imports: [

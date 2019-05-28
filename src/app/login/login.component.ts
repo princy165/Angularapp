@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CommonService } from '../shared/common.service';
 @Component({
     selector: 'login-root',
     templateUrl: './login.component.html',
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
     ]
 })
 export class LoginComponent {
+    username:any;
+    pwd:any;
     loginForm: FormGroup
-    constructor(@Inject(FormBuilder) private fb:FormBuilder,private router:Router){
+    constructor(@Inject(FormBuilder) private fb:FormBuilder,private router:Router,private route:ActivatedRoute,private service:CommonService){
         this.buildForm();
         console.log(this.loginForm.value)
 
@@ -35,8 +38,20 @@ export class LoginComponent {
         })
     }
     login():void{
-          //this.router.navigate(['/visitor'])
-          console.log("*************");
+          
+          let reqBody = {
+              userName:this.username,
+              password:this.pwd
+          }
+          this.service.loginUser(reqBody).subscribe(
+            (data)=>{
+            console.log(data);
+            this.router.navigate(['/visitor'])
+          },
+          (err)=>{
+            console.log(err.message)
+          })
+
     }
     resetform():void{
         console.log(this.loginForm.reset());
